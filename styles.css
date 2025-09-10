@@ -302,6 +302,173 @@ body {
     font-weight: 600;
 }
 
+/* Rules Section */
+.rules-section {
+    padding: var(--spacing-3xl) 0;
+    background: var(--white);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-header h2 {
+    font-size: var(--font-size-4xl);
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: var(--spacing-md);
+    position: relative;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-red), var(--primary-blue));
+    border-radius: 2px;
+}
+
+.section-header p {
+    font-size: var(--font-size-lg);
+    color: var(--gray);
+    line-height: 1.6;
+}
+
+.rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-3xl);
+}
+
+.rule-card {
+    background: var(--light-gray);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.rule-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--primary-red), var(--primary-blue), var(--primary-green));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.rule-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-red);
+}
+
+.rule-card:hover::before {
+    opacity: 0.05;
+}
+
+.rule-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+.rule-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+    display: block;
+}
+
+.rule-card h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--dark-gray);
+    margin-bottom: var(--spacing-md);
+}
+
+.rule-card p {
+    color: var(--gray);
+    line-height: 1.6;
+    font-size: var(--font-size-base);
+}
+
+.rule-card:nth-child(6) {
+    background: linear-gradient(135deg, var(--primary-red), var(--primary-orange));
+    color: var(--white);
+}
+
+.rule-card:nth-child(6) h3,
+.rule-card:nth-child(6) p {
+    color: var(--white);
+}
+
+.rule-card:nth-child(6)::before {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.rules-footer {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.fun-fact {
+    background: var(--light-gray);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-2xl);
+    border-left: 5px solid var(--primary-green);
+}
+
+.fun-fact h4 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--dark-gray);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.fun-fact ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.fun-fact li {
+    padding: var(--spacing-sm) 0;
+    color: var(--gray);
+    position: relative;
+    padding-left: var(--spacing-lg);
+}
+
+.fun-fact li::before {
+    content: '🏆';
+    position: absolute;
+    left: 0;
+    top: var(--spacing-sm);
+}
+
+.fun-fact li:nth-child(2)::before { content: '⏱️'; }
+.fun-fact li:nth-child(3)::before { content: '🎓'; }
+.fun-fact li:nth-child(4)::before { content: '💪'; }
+
 /* CTA Section */
 .cta-section {
     background: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
@@ -534,6 +701,14 @@ body {
     .quick-facts {
         grid-template-columns: 1fr;
     }
+    
+    .rules-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-header h2 {
+        font-size: var(--font-size-3xl);
+    }
 }
 
 @media (max-width: 480px) {
@@ -560,6 +735,18 @@ body {
     .btn-primary, .btn-secondary {
         padding: var(--spacing-sm) var(--spacing-lg);
         font-size: var(--font-size-sm);
+    }
+    
+    .rule-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .fun-fact {
+        padding: var(--spacing-lg);
+    }
+    
+    .section-header h2 {
+        font-size: var(--font-size-2xl);
     }
 }
 
